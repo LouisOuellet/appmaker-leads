@@ -5,6 +5,16 @@ require_once dirname(__FILE__,3) . '/plugins/organizations/api.php';
 
 class leadsAPI extends organizationsAPI {
 
+	public function create($request = null, $data = null){
+		if(($data != null)||($data == null)){
+			if(!is_array($data)){ $data = json_decode($data, true); }
+			if(!isset($data['assigned_to'])){ $data['assigned_to'] = $this->Auth->User['id']; }
+			if(!isset($data['isActive'])){ $data['isActive'] = true; }
+			if(!isset($data['isLead'])){ $data['isLead'] = true; }
+			return parent::create($request, $data);
+		}
+	}
+
 	public function read($request = null, $data = null){
 		if(($data != null)||($data == null)){
 			if(!is_array($data)){ $data = json_decode($data, true); }

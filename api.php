@@ -9,9 +9,9 @@ class leadsAPI extends organizationsAPI {
 		if(($data != null)||($data == null)){
 			if(!is_array($data)){ $data = json_decode($data, true); }
 			var_dump($data);
-			if(!isset($data['assigned_to'])){ $data['assigned_to'] = $this->Auth->User['id']; }
-			if(!isset($data['isActive'])){ $data['isActive'] = true; }
-			if(!isset($data['isLead'])){ $data['isLead'] = true; }
+			// if(!isset($data['assigned_to'])){ $data['assigned_to'] = $this->Auth->User['id']; }
+			// if(!isset($data['isActive'])){ $data['isActive'] = true; }
+			// if(!isset($data['isLead'])){ $data['isLead'] = true; }
 			return parent::create('organizations', $data);
 		}
 	}

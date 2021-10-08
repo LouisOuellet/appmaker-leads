@@ -7,10 +7,13 @@ class leadsAPI extends organizationsAPI {
 
 	public function create($request = null, $data = null){
 		if(($data != null)||($data == null)){
+			$decodedBase64 = base64_decode($_POST['data']);
+			$decodedJSON = json_decode($decodedBase64, true);
+			var_dump($_POST['data']);
+			var_dump($decodedBase64);
+			var_dump($decodedJSON);
 			var_dump($data);
 			if(!is_array($data)){ $data = json_decode($data, true); }
-			var_dump($request);
-			var_dump($data);
 			// if(!isset($data['assigned_to'])){ $data['assigned_to'] = $this->Auth->User['id']; }
 			// if(!isset($data['isActive'])){ $data['isActive'] = true; }
 			// if(!isset($data['isLead'])){ $data['isLead'] = true; }

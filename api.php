@@ -43,7 +43,7 @@ class leadsAPI extends organizationsAPI {
 					"output" => [
 						'headers' => $headers,
 						'raw' => $leads,
-						'results' => $result,
+						'dom' => $result,
 					],
 				];
 			} else {

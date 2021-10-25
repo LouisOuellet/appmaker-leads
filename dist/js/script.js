@@ -10,6 +10,7 @@ API.Plugins.leads = {
 	forms:{
 		create:{
 			0:"name",
+			1:"assigned_to",
 			company_information:{
 				0:"address",
 				1:"city",

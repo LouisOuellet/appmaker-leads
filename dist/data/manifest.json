@@ -1,7 +1,7 @@
 {
     "repository": {
         "name": "appmaker-leads",
-        "branch": "stable",
+        "branch": "dev",
         "manifest": "\/dist\/data\/manifest.json",
         "host": {
             "git": "https:\/\/github.com\/LouisOuellet\/",
@@ -9,6 +9,6 @@
         }
     },
     "name": "leads",
-    "build": 71,
-    "version": "21.11-stable"
+    "build": 72,
+    "version": "21.11-dev"
 }

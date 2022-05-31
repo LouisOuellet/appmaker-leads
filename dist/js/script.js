@@ -56,9 +56,9 @@ Engine.Plugins.leads = {
 							headers:dataset.output.headers,
 							id:'LeadsIndex',
 							modal:true,
-							key:'name',
+							key:'id',
 							plugin:"organizations",
-							import:{ key:'name', },
+							import:{ key:'id', },
 							clickable:{ enable:true, plugin:'organizations', view:'details'},
 							set:{status:1,isActive:"true",isLead:"true"},
 							controls:{

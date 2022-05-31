@@ -1,4 +1,4 @@
-API.Plugins.leads = {
+Engine.Plugins.leads = {
 	element:{
 		modal:{
 			read:{},
@@ -42,17 +42,17 @@ API.Plugins.leads = {
 		},
 	},
 	init:function(){
-		API.GUI.Sidebar.Nav.add('Leads', 'main_navigation');
+		Engine.GUI.Sidebar.Nav.add('Leads', 'main_navigation');
 	},
 	load:{
 		index:function(){
-			API.Builder.card($('#pagecontent'),{ title: 'Leads', icon: 'leads'}, function(card){
-				API.request('leads','read',{data:{}},function(result) {
+			Engine.Builder.card($('#pagecontent'),{ title: 'Leads', icon: 'leads'}, function(card){
+				Engine.request('leads','read',{data:{}},function(result) {
 					var dataset = JSON.parse(result);
 					if(dataset.success != undefined){
-						for(const [key, value] of Object.entries(dataset.output.dom)){ API.Helper.set(API.Contents,['data','dom','leads',value.name],value); }
-						for(const [key, value] of Object.entries(dataset.output.raw)){ API.Helper.set(API.Contents,['data','raw','leads',value.name],value); }
-						API.Builder.table(card.children('.card-body'), dataset.output.dom, {
+						for(const [key, value] of Object.entries(dataset.output.dom)){ Engine.Helper.set(Engine.Contents,['data','dom','leads',value.name],value); }
+						for(const [key, value] of Object.entries(dataset.output.raw)){ Engine.Helper.set(Engine.Contents,['data','raw','leads',value.name],value); }
+						Engine.Builder.table(card.children('.card-body'), dataset.output.dom, {
 							headers:dataset.output.headers,
 							id:'LeadsIndex',
 							modal:true,
@@ -67,16 +67,16 @@ API.Plugins.leads = {
 								add:[
 									{
 										menu:'file',
-										text:'<i class="icon icon-create mr-1"></i>'+API.Contents.Language['Create'],
+										text:'<i class="icon icon-create mr-1"></i>'+Engine.Contents.Language['Create'],
 										name:'create',
 										action:function(){
-											API.CRUD.create.show({plugin:'leads',table:API.Plugins.leads.element.table.index},function(status,row){});
+											Engine.CRUD.create.show({plugin:'leads',table:Engine.Plugins.leads.element.table.index},function(status,row){});
 										},
 									},
 								],
 							}
 						},function(response){
-							API.Plugins.leads.element.table.index = response.table;
+							Engine.Plugins.leads.element.table.index = response.table;
 						});
 					}
 				});
@@ -86,4 +86,4 @@ API.Plugins.leads = {
 	extend:{},
 }
 
-API.Plugins.leads.init();
+Engine.Plugins.leads.init();
